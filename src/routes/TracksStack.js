@@ -1,6 +1,8 @@
 import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Button} from 'react-native';
+import {Button} from 'react-native-elements';
+import {TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 import {AuthContext} from '../providers/AuthProvider';
 
@@ -11,7 +13,7 @@ const Stack = createStackNavigator();
 
 export const TracksStack = () => {
   const {logout} = useContext(AuthContext);
-
+  const myIcon = <Icon name="logout" size={30} color="blue" />;
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -19,7 +21,12 @@ export const TracksStack = () => {
         component={TrackListScreen}
         options={{
           headerRight: () => (
-            <Button onPress={() => logout()} title="Logout" color="red" />
+            <TouchableOpacity
+              onPress={() => logout()}
+              title="Logout"
+              color="red">
+              {myIcon}
+            </TouchableOpacity>
           ),
         }}
       />
