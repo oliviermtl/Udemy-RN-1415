@@ -1,19 +1,29 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import {Button} from 'react-native';
+
+import {AuthContext} from '../providers/AuthProvider';
+
 import TrackListScreen from '../screens/TrackListScreen';
 import TrackDetailScreen from '../screens/TrackDetailScreen';
 
 const Stack = createStackNavigator();
 
-export const AuthStack = ({}) => {
+export const TracksStack = () => {
+  const {logout} = useContext(AuthContext);
+
   return (
-    <Stack.Navigator initialRouteName="Login">
-      <Stack.Screen name="Track List" component={TrackListScreen} />
+    <Stack.Navigator>
       <Stack.Screen
-        name="Track Detail"
-        options={{headerTitle: 'Track Detail'}}
-        component={TrackDetailScreen}
+        name="TrackList"
+        component={TrackListScreen}
+        options={{
+          headerRight: () => (
+            <Button onPress={() => logout()} title="Logout" color="red" />
+          ),
+        }}
       />
+      <Stack.Screen name="TrackDetail" component={TrackDetailScreen} />
     </Stack.Navigator>
   );
 };

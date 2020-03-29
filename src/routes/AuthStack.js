@@ -10,7 +10,7 @@ export const AuthStack = ({}) => {
     <Stack.Navigator initialRouteName="Login">
       <Stack.Screen name="Login" component={SigninScreen} />
       <Stack.Screen
-        name="Register"
+        name="Signup"
         options={{headerTitle: 'Register you!'}}
         component={SignupScreen}
       />
