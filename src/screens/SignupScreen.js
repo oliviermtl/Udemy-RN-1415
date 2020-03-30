@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Input, Button} from 'react-native-elements';
+import {Text, Input, Button} from 'react-native-elements';
 import {Context as AuthContext} from '../context/authContext';
 
 const SignupScreen = ({navigation}) => {
@@ -8,6 +8,7 @@ const SignupScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  console.log(state);
   return (
     <View>
       <Input
@@ -24,7 +25,9 @@ const SignupScreen = ({navigation}) => {
         autoCapitalize="none"
         autoCorrect={false}
         secureTextEntry
+        errorMessage={state.errorMessage ? state.errorMessage : null}
       />
+
       <Button title="Sign Up" onPress={() => signup({email, password})} />
     </View>
   );
