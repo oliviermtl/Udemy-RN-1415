@@ -3,12 +3,13 @@ import {View, StyleSheet} from 'react-native';
 import {Text, Input, Button} from 'react-native-elements';
 import {Context as AuthContext} from '../context/authContext';
 
+import * as RootNavigation from '../RootNavigation';
+
 const SignupScreen = ({navigation}) => {
   const {state, signup} = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  console.log(state);
   return (
     <View>
       <Input
