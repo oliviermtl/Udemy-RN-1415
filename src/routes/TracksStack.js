@@ -4,7 +4,7 @@ import {Button} from 'react-native-elements';
 import {TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
-import {AuthContext} from '../providers/AuthProvider';
+import {Context as AuthContext} from '../context/authContext';
 
 import TrackListScreen from '../screens/TrackListScreen';
 import TrackDetailScreen from '../screens/TrackDetailScreen';
