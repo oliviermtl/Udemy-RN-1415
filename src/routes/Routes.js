@@ -9,31 +9,14 @@ import {AppTabs} from './AppTabs';
 import {AuthStack} from './AuthStack';
 
 export const Routes = ({}) => {
-  const {state, token} = useContext(MyContext);
+  const {state, tryLocalSignin, token} = useContext(MyContext);
   const {user, login, time} = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   // check if user is logged in
-  //   AsyncStorage.getItem('token')
-  //     .then(userString => {
-  //       if (userString) {
-  //         login();
-  //       }
-  //       setLoading(false);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }, [token]);
-
-  // if (loading) {
-  //   return (
-  //     <View>
-  //       <ActivityIndicator size="large" />
-  //     </View>
-  //   );
-  // }
+  useEffect(() => {
+    tryLocalSignin();
+  }),
+    [];
 
   return (
     <NavigationContainer>

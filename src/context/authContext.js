@@ -50,6 +50,16 @@ const signin = dispatch => {
   };
 };
 
+const tryLocalSignin = dispatch => async () => {
+  const token = await AsyncStorage.getItem('token');
+  if (token) {
+    dispatch({type: 'signup', payload: token});
+    // navigate('TrackList');
+  } else {
+    // navigate('Signup');
+  }
+};
+
 const logout = dispatch => {
   return async () => {
     try {
@@ -63,6 +73,6 @@ const logout = dispatch => {
 
 export const {Provider, Context} = createDataContext(
   authReducer,
-  {signup, signin, logout},
+  {signup, signin, logout, tryLocalSignin},
   {token: null, errorMessage: ''},
 );
