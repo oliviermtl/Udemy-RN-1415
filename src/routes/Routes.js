@@ -18,6 +18,28 @@ export const Routes = ({}) => {
   }),
     [];
 
+  // useEffect(() => {
+  //   // check if user is logged in
+  //   AsyncStorage.getItem('token')
+  //     .then(userString => {
+  //       if (userString) {
+  //         login();
+  //       }
+  //       setLoading(false);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }, [token]);
+
+  // if (loading) {
+  //   return (
+  //     <View>
+  //       <ActivityIndicator size="large" />
+  //     </View>
+  //   );
+  // }
+
   return (
     <NavigationContainer>
       {state.token ? <AppTabs /> : <AuthStack />}
